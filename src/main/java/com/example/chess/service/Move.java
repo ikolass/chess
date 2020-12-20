@@ -12,7 +12,7 @@ public class Move {
         int y = 1;
         int z;
         int t;
-        int c;
+       
         //int z = (int)(Math.random()*8);
         // int t = (int)(Math.random()*8);
         ChessService chessService = new ChessService();
