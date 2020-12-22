@@ -27,7 +27,10 @@ public class Move {
             case 1:
                 z = x + 2;
                 t = y + 1;
-                if (!chessBoard.get(i).get(j).getColor().equals(chessBoard.get(z).get(t).getColor())) {
+                if(z<0 || z>7 || t<0 || t>7 ){
+                    System.out.println("bu işlemi gerçekleştiremezsiniz");
+                }
+                else if (!chessBoard.get(i).get(j).getColor().equals(chessBoard.get(z).get(t).getColor())) {
                     String tempName = chessBoard.get(x).get(y).getName();
                     String tempColor = chessBoard.get(x).get(y).getColor();
                     chessBoard.get(x).get(y).setName(null);
@@ -39,7 +42,10 @@ public class Move {
             case 2:
                 z = x + 2;
                 t = y - 1;
-                if (!chessBoard.get(i).get(j).getColor().equals(chessBoard.get(z).get(t).getColor())) {
+                if(z<0 || z>7 || t<0 || t>7 ){
+                    System.out.println("bu işlemi gerçekleştiremezsiniz");
+                }
+               else if (!chessBoard.get(i).get(j).getColor().equals(chessBoard.get(z).get(t).getColor())) {
                     String tempName = chessBoard.get(x).get(y).getName();
                     String tempColor = chessBoard.get(x).get(y).getColor();
                     chessBoard.get(x).get(y).setName(null);
@@ -51,7 +57,10 @@ public class Move {
             case 3:
                 z = x - 2;
                 t = y - 1;
-                if (!chessBoard.get(i).get(j).getColor().equals(chessBoard.get(z).get(t).getColor())) {
+                if(z<0 || z>7 || t<0 || t>7 ){
+                    System.out.println("bu işlemi gerçekleştiremezsiniz");
+                }
+                else if (!chessBoard.get(i).get(j).getColor().equals(chessBoard.get(z).get(t).getColor())) {
                     String tempName = chessBoard.get(x).get(y).getName();
                     String tempColor = chessBoard.get(x).get(y).getColor();
                     chessBoard.get(x).get(y).setName(null);
@@ -63,7 +72,10 @@ public class Move {
             case 4:
                 z = x - 2;
                 t = y + 1;
-                if (!chessBoard.get(i).get(j).getColor().equals(chessBoard.get(z).get(t).getColor())) {
+                if(z<0 || z>7 || t<0 || t>7 ){
+                    System.out.println("bu işlemi gerçekleştiremezsiniz");
+                }
+               else  if (!chessBoard.get(i).get(j).getColor().equals(chessBoard.get(z).get(t).getColor())) {
                     String tempName = chessBoard.get(x).get(y).getName();
                     String tempColor = chessBoard.get(x).get(y).getColor();
                     chessBoard.get(x).get(y).setName(null);
@@ -75,7 +87,10 @@ public class Move {
             case 5:
                 z = x - 1;
                 t = y - 2;
-                if (!chessBoard.get(i).get(j).getColor().equals(chessBoard.get(z).get(t).getColor())) {
+                if(z<0 || z>7 || t<0 || t>7 ){
+                    System.out.println("bu işlemi gerçekleştiremezsiniz");
+                }
+                else if (!chessBoard.get(i).get(j).getColor().equals(chessBoard.get(z).get(t).getColor())) {
                     String tempName = chessBoard.get(x).get(y).getName();
                     String tempColor = chessBoard.get(x).get(y).getColor();
                     chessBoard.get(x).get(y).setName(null);
@@ -87,7 +102,10 @@ public class Move {
             case 6:
                 z = x - 1;
                 t = y + 2;
-                if (!chessBoard.get(i).get(j).getColor().equals(chessBoard.get(z).get(t).getColor())) {
+                if(z<0 || z>7 || t<0 || t>7 ){
+                    System.out.println("bu işlemi gerçekleştiremezsiniz");
+                }
+                else if (!chessBoard.get(i).get(j).getColor().equals(chessBoard.get(z).get(t).getColor())) {
                     String tempName = chessBoard.get(x).get(y).getName();
                     String tempColor = chessBoard.get(x).get(y).getColor();
                     chessBoard.get(x).get(y).setName(null);
@@ -99,7 +117,10 @@ public class Move {
             case 7:
                 z = x + 1;
                 t = y - 2;
-                if (!chessBoard.get(i).get(j).getColor().equals(chessBoard.get(z).get(t).getColor())) {
+                if(z<0 || z>7 || t<0 || t>7 ){
+                    System.out.println("bu işlemi gerçekleştiremezsiniz");
+                }
+                else if (!chessBoard.get(i).get(j).getColor().equals(chessBoard.get(z).get(t).getColor())) {
                     String tempName = chessBoard.get(x).get(y).getName();
                     String tempColor = chessBoard.get(x).get(y).getColor();
                     chessBoard.get(x).get(y).setName(null);
@@ -111,7 +132,10 @@ public class Move {
             case 8:
                 z = x + 1;
                 t = y + 2;
-                if (!chessBoard.get(i).get(j).getColor().equals(chessBoard.get(z).get(t).getColor())) {
+                if(z<0 || z>7 || t<0 || t>7 ){
+                    System.out.println("bu işlemi gerçekleştiremezsiniz");
+                }
+                else if (!chessBoard.get(i).get(j).getColor().equals(chessBoard.get(z).get(t).getColor())) {
                     String tempName = chessBoard.get(x).get(y).getName();
                     String tempColor = chessBoard.get(x).get(y).getColor();
                     chessBoard.get(x).get(y).setName(null);
