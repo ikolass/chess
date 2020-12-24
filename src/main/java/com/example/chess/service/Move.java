@@ -3,14 +3,19 @@ package com.example.chess.service;
 import com.example.chess.dto.Piece;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Scanner;
 
 @Service
 public class Move {
-    int x = 0;
-    int y = 1;
-    int z;
-    int t;
+    int horse1i = 0;
+    int horse1j = 1;
+    int horse2i = 0;
+    int horse2j = 6;
+    int newi1;
+    int newj1;
+    int newi2;
+    int newj2;
     int i = 0;
     int j = 0;
     ChessService chessService = new ChessService();
@@ -22,61 +27,102 @@ public class Move {
         int horse = scanner.nextInt();
         switch (horse) {
             case 1:
-                z = x + 2;
-                t = y + 1;
-               control();
+                newi1 = horse1i + 2;
+                newj1 = horse1j + 1;
+                newi2 = horse2i + 2;
+                newj2 = horse2j + 1;
+                control1();
+                control2();
                 break;
-          case 2:
-                z = x + 2;
-                t = y - 1;
-              control();
+            case 2:
+                newi1 = horse1i + 2;
+                newj1 = horse1j - 1;
+                newi2 = horse2i + 2;
+                newj2 = horse2j - 1;
+                control1();
+                control2();
                 break;
             case 3:
-                z = x - 2;
-                t = y - 1;
-                control();
+                newi1 = horse1i - 2;
+                newj1 = horse1j - 1;
+                newi2 = horse2i - 2;
+                newj2 = horse2j - 1;
+                control1();
+                control2();
                 break;
             case 4:
-                z = x - 2;
-                t = y + 1;
-                control();
+                newi1 = horse1i - 2;
+                newj1 = horse1j + 1;
+                newi2 = horse2i - 2;
+                newj2 = horse2j + 1;
+                control1();
+                control2();
                 break;
             case 5:
-                z = x - 1;
-                t = y - 2;
-                control();
+                newi1 = horse1i - 1;
+                newj1 = horse1j - 2;
+                newi2 = horse2i - 1;
+                newj2 = horse2j - 2;
+                control1();
+                control2();
                 break;
             case 6:
-                z = x - 1;
-                t = y + 2;
-                control();
+                newi1 = horse1i - 1;
+                newj1 = horse1j + 2;
+                newi2 = horse2i - 1;
+                newj2 = horse2j + 2;
+                control1();
+                control2();
                 break;
             case 7:
-                z = x + 1;
-                t = y - 2;
-                control();
+                newi1 = horse1i + 1;
+                newj1 = horse1j - 2;
+                newi2 = horse2i + 1;
+                newj2 = horse2j - 2;
+                control1();
+                control2();
                 break;
             case 8:
-                z = x + 1;
-                t = y + 2;
-                control();
+                newi1 = horse1i + 1;
+                newj1 = horse1j + 2;
+                newi2 = horse2i + 1;
+                newj2 = horse2j + 2;
+                control1();
+                control2();
                 break;
         }
         return chessBoard;
 }
-    private void control() {
-        if(z<0 || z>7 || t<0 || t>7 ){
-            System.out.println("bu işlemi gerçekleştiremezsiniz");
+    private void control1() {
+        if(newi1 <0 || newi1 >7 || newj1 <0 || newj1 >7 ){
+            System.out.println("At 1 bu hamleyi yapamaz");
         }
-        else if (chessBoard[i][j].getColor()!=chessBoard[z][t].getColor()) {
-            String tempName=chessBoard[x][y].getName();
-            String tempColor = chessBoard[x][y].getColor();
-            chessBoard[x][y].setName(null);
-            chessBoard[x][y].setColor(null);
-            chessBoard[z][t].setName(tempName);
-            chessBoard[z][t].setColor(tempColor);
+        else if (!chessBoard[i][j].getColor().equals(chessBoard[newi1][newj1].getColor())) {
+            String tempName = chessBoard[horse1i][horse1j].getName();
+            String tempColor = chessBoard[horse1i][horse1j].getColor();
+            chessBoard[horse1i][horse1j].setName(null);
+            chessBoard[horse1i][horse1j].setColor(null);
+            chessBoard[newi1][newj1].setName(tempName);
+            chessBoard[newi1][newj1].setColor(tempColor);
         }
     }
+    private void control2() {
+        if (newi2 < 0 || newi2 > 7 || newj2 < 0 || newj2 > 7) {
+            System.out.println("At 2 bu hamleyi yapamaz");
+        } else if (!chessBoard[i][j].getColor().equals(chessBoard[newi2][newj2].getColor())) {
+            String tempName = chessBoard[horse2i][horse2j].getName();
+            String tempColor = chessBoard[horse2i][horse2j].getColor();
+            chessBoard[horse2i][horse2j].setName(null);
+            chessBoard[horse2i][horse2j].setColor(null);
+            chessBoard[newi2][newj2].setName(tempName);
+            chessBoard[newi2][newj2].setColor(tempColor);
+        }
+    }
+    private List<Piece[][]> totalMove(){
 
+        
+
+        return totalMove();
+    }
 }
 
