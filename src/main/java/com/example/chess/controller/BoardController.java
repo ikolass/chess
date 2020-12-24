@@ -21,12 +21,12 @@ public class BoardController {
     Move move;
 
     @GetMapping("/create-board")
-    public List<List<Piece>> createBoard() {
+    public Piece[][] createBoard() {
         return chessService.createBoard();
     }
 
     @GetMapping("/move")
-    public List<List<Piece>> movePiece() {
+    public Piece[][] movePiece() {
         return move.movePiece();
     }
 
