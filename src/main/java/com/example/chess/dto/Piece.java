@@ -4,10 +4,7 @@ import lombok.Data;
 
 @Data
 public class Piece {
-
     String name;
     String color;
-
-
 }
 

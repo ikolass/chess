@@ -8,7 +8,6 @@ public enum NameEnum {
     HORSE("AT"),
     ROOK("KALE"),
     PAWN("PIYON");
-
     private final String name;
 
     NameEnum(String name) {

@@ -4,7 +4,6 @@ package com.example.chess.type;
 public enum ColorEnum {
     BLACK("SIYAH"),
     WHITE("BEYAZ");
-
     private final String color;
 
     ColorEnum(String color) {

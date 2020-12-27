@@ -57,30 +57,19 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.example.chess.resource" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\iaska\OneDrive\Masaüstü\chess\src\main\java\com\example\chess" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.chess.resource" />
       <recent name="com.example.chess.dto" />
       <recent name="com.example.chess.controller" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\iaska\OneDrive\Masaüstü\chess\src\main\java\com\example\chess" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.chess.resource" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ChessApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="chess" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.chess.ChessApplication" />
@@ -106,7 +95,13 @@
       <workItem from="1608547576901" duration="14431000" />
       <workItem from="1608605053618" duration="881000" />
       <workItem from="1608627453428" duration="4665000" />
-      <workItem from="1608733732046" duration="23118000" />
+      <workItem from="1608733732046" duration="26252000" />
+      <workItem from="1608810656105" duration="27603000" />
+      <workItem from="1608889379565" duration="16852000" />
+      <workItem from="1609022131500" duration="4499000" />
+      <workItem from="1609069363520" duration="588000" />
+      <workItem from="1609107896392" duration="261000" />
+      <workItem from="1609108408845" duration="806000" />
     </task>
     <servers />
   </component>
@@ -126,81 +121,104 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="124" key="#com.intellij.ide.util.MemberChooser" timestamp="1608741592589">
+    <state x="395" y="96" key="#Inspections" timestamp="1608988559408">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="574" y="124" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1608741592589" />
+    <state x="395" y="96" key="#Inspections/0.0.1536.834@0.0.1536.834" timestamp="1608988559408" />
+    <state x="574" y="124" key="#com.intellij.ide.util.MemberChooser" timestamp="1608889846295">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="574" y="124" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1608889846295" />
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1608741676419">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1608741676419" />
+    <state x="499" y="164" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1608988616456">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="499" y="164" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1536.834@0.0.1536.834" timestamp="1608988616456" />
     <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1608505233886">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1608505233886" />
-    <state width="1493" height="265" key="GridCell.Tab.0.bottom" timestamp="1608772971971">
+    <state width="1493" height="88" key="GridCell.Tab.0.bottom" timestamp="1609110997088">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1608772971971" />
-    <state width="1493" height="265" key="GridCell.Tab.0.center" timestamp="1608772971971">
+    <state width="1493" height="88" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1609110997088" />
+    <state width="1493" height="88" key="GridCell.Tab.0.center" timestamp="1609110997088">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1608772971971" />
-    <state width="1493" height="265" key="GridCell.Tab.0.left" timestamp="1608772971970">
+    <state width="1493" height="88" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1609110997087" />
+    <state width="1493" height="88" key="GridCell.Tab.0.left" timestamp="1609110997087">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1608772971970" />
-    <state width="1493" height="265" key="GridCell.Tab.0.right" timestamp="1608772971971">
+    <state width="1493" height="88" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1609110997087" />
+    <state width="1493" height="88" key="GridCell.Tab.0.right" timestamp="1609110997088">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1608772971971" />
-    <state width="1493" height="265" key="GridCell.Tab.1.bottom" timestamp="1608772971971">
+    <state width="1493" height="88" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1609110997088" />
+    <state width="1493" height="88" key="GridCell.Tab.1.bottom" timestamp="1609110997089">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1608772971971" />
-    <state width="1493" height="265" key="GridCell.Tab.1.center" timestamp="1608772971971">
+    <state width="1493" height="88" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1609110997089" />
+    <state width="1493" height="88" key="GridCell.Tab.1.center" timestamp="1609110997088">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1608772971971" />
-    <state width="1493" height="265" key="GridCell.Tab.1.left" timestamp="1608772971971">
+    <state width="1493" height="88" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1609110997088" />
+    <state width="1493" height="88" key="GridCell.Tab.1.left" timestamp="1609110997088">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1608772971971" />
-    <state width="1493" height="265" key="GridCell.Tab.1.right" timestamp="1608772971971">
+    <state width="1493" height="88" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1609110997088" />
+    <state width="1493" height="88" key="GridCell.Tab.1.right" timestamp="1609110997089">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1608772971971" />
-    <state width="1493" height="312" key="GridCell.Tab.2.bottom" timestamp="1608769686718">
+    <state width="1493" height="88" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1609110997089" />
+    <state width="1493" height="347" key="GridCell.Tab.2.bottom" timestamp="1609033049611">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="312" key="GridCell.Tab.2.bottom/0.0.1536.834@0.0.1536.834" timestamp="1608769686718" />
-    <state width="1493" height="312" key="GridCell.Tab.2.center" timestamp="1608769686718">
+    <state width="1493" height="347" key="GridCell.Tab.2.bottom/0.0.1536.834@0.0.1536.834" timestamp="1609033049611" />
+    <state width="1493" height="347" key="GridCell.Tab.2.center" timestamp="1609033049611">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="312" key="GridCell.Tab.2.center/0.0.1536.834@0.0.1536.834" timestamp="1608769686718" />
-    <state width="1493" height="312" key="GridCell.Tab.2.left" timestamp="1608769686718">
+    <state width="1493" height="347" key="GridCell.Tab.2.center/0.0.1536.834@0.0.1536.834" timestamp="1609033049611" />
+    <state width="1493" height="347" key="GridCell.Tab.2.left" timestamp="1609033049610">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="312" key="GridCell.Tab.2.left/0.0.1536.834@0.0.1536.834" timestamp="1608769686718" />
-    <state width="1493" height="312" key="GridCell.Tab.2.right" timestamp="1608769686718">
+    <state width="1493" height="347" key="GridCell.Tab.2.left/0.0.1536.834@0.0.1536.834" timestamp="1609033049610" />
+    <state width="1493" height="347" key="GridCell.Tab.2.right" timestamp="1609033049611">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="312" key="GridCell.Tab.2.right/0.0.1536.834@0.0.1536.834" timestamp="1608769686718" />
-    <state x="299" y="72" key="Maven.ArtifactSearchDialog" timestamp="1608735641463">
+    <state width="1493" height="347" key="GridCell.Tab.2.right/0.0.1536.834@0.0.1536.834" timestamp="1609033049611" />
+    <state x="299" y="72" key="Maven.ArtifactSearchDialog" timestamp="1608892996311">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="299" y="72" key="Maven.ArtifactSearchDialog/0.0.1536.834@0.0.1536.834" timestamp="1608735641463" />
+    <state x="299" y="72" key="Maven.ArtifactSearchDialog/0.0.1536.834@0.0.1536.834" timestamp="1608892996311" />
     <state x="277" y="62" key="SettingsEditor" timestamp="1608505296071">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="277" y="62" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1608505296071" />
+    <state x="320" y="153" width="895" height="628" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1608843140913">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="320" y="153" width="895" height="628" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.834@0.0.1536.834" timestamp="1608843140913" />
+    <state x="404" y="85" width="1507" height="820" key="dock-window-1" timestamp="1608775117145">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="404" y="85" width="1507" height="820" key="dock-window-1/0.0.1536.834@0.0.1536.834" timestamp="1608775117145" />
     <state x="499" y="173" key="extract.method.dialog" timestamp="1608771964685">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="499" y="173" key="extract.method.dialog/0.0.1536.834@0.0.1536.834" timestamp="1608771964685" />
-    <state x="469" y="165" key="refactoring.ChangeSignatureDialog" timestamp="1608765649352">
+    <state x="469" y="165" key="refactoring.ChangeSignatureDialog" timestamp="1609022715065">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="469" y="165" key="refactoring.ChangeSignatureDialog/0.0.1536.834@0.0.1536.834" timestamp="1608765649352" />
+    <state x="469" y="165" key="refactoring.ChangeSignatureDialog/0.0.1536.834@0.0.1536.834" timestamp="1609022715065" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.example.chess.service.Move" memberName="horse1i" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
