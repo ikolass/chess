@@ -1,3 +1,4 @@
+
 package com.example.chess.type;
 
 //Satranç taşlarının renk özelliğini enumla oluşturdum.

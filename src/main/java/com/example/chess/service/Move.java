@@ -4,97 +4,112 @@ import com.example.chess.dto.Piece;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import static java.util.Arrays.stream;
+import static com.example.chess.type.ColorEnum.BLACK;
+import static com.example.chess.type.NameEnum.HORSE;
 
 @Service
 public class Move {
-    int horse1i = 3;
-    int horse1j = 3;
-    int horse2i = 3;
-    int horse2j = 4;
-    int newi1;
-    int newj1;
-    int i = 0;
-    int j = 0;
 
     ChessService chessService = new ChessService();
-    Piece[][] chessBoard = chessService.createBoard();
-    List<Piece> list = new ArrayList<Piece>();
 
-    public List<Piece> movePiece() {
-        // chessService.createBoard();
-        //int horse = 1;
-     for (int a = 0; a < 2; a++) {
-            for (int horse = 1; horse < 9; horse++) {
-                switch (horse) {
-                    case 1:
-                        newi1 = horse1i + 2;
-                        newj1 = horse1j + 1;
-                        control1();
-                        break;
-                    case 2:
-                        newi1 = horse1i + 2;
-                        newj1 = horse1j - 1;
-                        control1();
-                        break;
-                    case 3:
-                        newi1 = horse1i - 2;
-                        newj1 = horse1j - 1;
-                        control1();
-                        break;
-                    case 4:
-                        newi1 = horse1i - 2;
-                        newj1 = horse1j + 1;
-                        control1();
-                        break;
-                    case 5:
-                        newi1 = horse1i - 1;
-                        newj1 = horse1j - 2;
-                        control1();
-                        break;
-                    case 6:
-                        newi1 = horse1i - 1;
-                        newj1 = horse1j + 2;
-                        control1();
-                        break;
-                    case 7:
-                        newi1 = horse1i + 1;
-                        newj1 = horse1j - 2;
-                        control1();
-                        break;
-                    case 8:
-                        newi1 = horse1i + 1;
-                        newj1 = horse1j + 2;
-                        control1();
-                        break;
+    Piece[][] chessBoard = chessService.createBoard();
+    List<Piece[][]> possibleMoves = new ArrayList<>();
+
+    public List<Piece[][]> movePiece() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                Piece p = chessBoard[i][j];
+                if (p.getName() == HORSE && p.getColor() == BLACK) {
+                    calculateHorseMoves(p, i, j, possibleMoves);
                 }
             }
+        }
+        return possibleMoves;
+    }
 
-           horse1i = horse2i;
-          horse1j = horse2j;
+    void calculateHorseMoves(Piece p, int posX, int posY, List<Piece[][]> list) {
+        for (int horse = 0; horse < 8; horse++) {
+            int toX, toY;
+            switch (horse) {
+                case 1:
+                    toX = posX + 2;
+                    toY = posY + 1;
+                    control(toX, toY, p, list);
+                    break;
+                case 2:
+                    toX = posX + 2;
+                    toY = posY - 1;
+                    control(toX, toY, p, list);
+                    break;
+                case 3:
+                    toX = posX - 2;
+                    toY = posY - 1;
+                    control(toX, toY, p, list);
+                    break;
+                case 4:
+                    toX = posX - 2;
+                    toY = posY + 1;
+                    control(toX, toY, p, list);
+                    break;
+                case 5:
+                    toX = posX - 1;
+                    toY = posY - 2;
+                    control(toX, toY, p, list);
+                    break;
+                case 6:
+                    toX = posX - 1;
+                    toY = posY + 2;
+                    control(toX, toY, p, list);
+                    break;
+                case 7:
+                    toX = posX + 1;
+                    toY = posY - 2;
+                    control(toX, toY, p, list);
+                    break;
+                case 8:
+                    toX = posX + 1;
+                    toY = posY + 2;
+                    control(toX, toY, p, list);
+                    break;
+            }
+        }
+    }
+
+    private List<Piece[][]> control(int toX, int toY, Piece curentPiece, List<Piece[][]> list) {
+        try {
+            Piece toPiece = chessBoard[toX][toY];
+            if (toX < 0 || toX > 7 || toY < 0 || toY > 7) {
+            } else if (toPiece.getColor() != curentPiece.getColor()) {
+                toPiece = new Piece();
+                toPiece.setName(curentPiece.getName());
+                toPiece.setColor(curentPiece.getColor());
+                curentPiece = null;
+                list.add(clone(chessBoard));
+            }
+        } catch (Exception e) {
+
         }
         return list;
     }
 
-    private List<Piece> control1() {
-        if (newi1 < 0 || newi1 > 7 || newj1 < 0 || newj1 > 7) {
-            System.out.println("At 1 bu hamleyi yapamaz");
-        } else if (!chessBoard[i][j].getColor().equals(chessBoard[newi1][newj1].getColor())) {
-            Piece piece = new Piece();
-            String tempName = chessBoard[horse1i][horse1j].getName();
-            String tempColor = chessBoard[horse1i][horse1j].getColor();
-            //chessBoard[horse1i][horse1j].setName(null);
-            //chessBoard[horse1i][horse1j].setColor(null);
-            chessBoard[newi1][newj1].setName(tempName);
-            chessBoard[newi1][newj1].setColor(tempColor);
-            piece.setName(tempName);
-            piece.setColor(tempColor);
-            chessBoard[newi1][newj1] = piece;
-            list.add(piece);
+    Piece[][] clone(Piece[][] board) {
+        Piece[][] newBoard = new Piece[8][8];
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                Piece oldPiece = board[i][j];
+                if (oldPiece != null) {
+                    Piece newPiece = new Piece();
+                    newPiece.setName(oldPiece.getName());
+                    newPiece.setColor(oldPiece.getColor());
+                    newBoard[i][j] = newPiece;
+                }
+            }
         }
-        return list;
+        return newBoard;
     }
 }
+
+
+

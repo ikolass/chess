@@ -1,10 +1,14 @@
+
 package com.example.chess.dto;
 
+import com.example.chess.type.ColorEnum;
+import com.example.chess.type.NameEnum;
 import lombok.Data;
 
 @Data
 public class Piece {
-    String name;
-    String color;
-}
 
+    NameEnum name;
+    ColorEnum color;
+
+}

@@ -18,15 +18,17 @@ public class BoardController {
     @Autowired
     Move move;
 
+
     @GetMapping("/create-board")
-    public Piece[][] createBoard() {
+    public  Piece[][] createBoard() {
         return chessService.createBoard();
     }
 
     @GetMapping("/move")
-    public List<Piece> movePiece() {
+    public List<Piece[][]> move() {
         return  move.movePiece();
     }
+
 
 
 }

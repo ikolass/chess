@@ -1,7 +1,7 @@
 package com.example.chess.type;
 
 //Satranç taşlarının isim özelliğini enumla oluşturdum.
-public enum NameEnum {
+   public enum NameEnum {
     KING("SAH"),
     QUENN("VEZİR"),
     BISHOP("FIL"),
@@ -17,4 +17,5 @@ public enum NameEnum {
     public String getName() {
         return name;
     }
+
 }
