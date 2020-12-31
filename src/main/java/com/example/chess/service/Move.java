@@ -13,11 +13,10 @@ import static com.example.chess.type.NameEnum.HORSE;
 public class Move {
 
     ChessService chessService = new ChessService();
-
     Piece[][] chessBoard = chessService.createBoard();
     List<Piece[][]> possibleMoves = new ArrayList<>();
-
     public List<Piece[][]> movePiece() {
+
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 Piece p = chessBoard[i][j];
@@ -30,7 +29,7 @@ public class Move {
     }
 
     void calculateHorseMoves(Piece p, int posX, int posY, List<Piece[][]> list) {
-        for (int horse = 0; horse < 8; horse++) {
+        for (int horse = 1; horse < 9; horse++) {
             int toX, toY;
             switch (horse) {
                 case 1:
@@ -87,23 +86,24 @@ public class Move {
                 toPiece.setColor(curentPiece.getColor());
                 curentPiece = null;
                 list.add(clone(chessBoard));
+
+                return list;
             }
         } catch (Exception e) {
-
         }
         return list;
     }
-
-    Piece[][] clone(Piece[][] board) {
+    Piece[][] clone(Piece[][] chessBoard) {
         Piece[][] newBoard = new Piece[8][8];
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                Piece oldPiece = board[i][j];
+                Piece oldPiece = chessBoard[i][j];
                 if (oldPiece != null) {
                     Piece newPiece = new Piece();
                     newPiece.setName(oldPiece.getName());
                     newPiece.setColor(oldPiece.getColor());
                     newBoard[i][j] = newPiece;
+                    possibleMoves.add(newBoard);
                 }
             }
         }
