@@ -16,7 +16,6 @@ public class Move {
     Piece[][] chessBoard = chessService.createBoard();
     List<Piece[][]> possibleMoves = new ArrayList<>();
     public List<Piece[][]> movePiece() {
-
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 Piece p = chessBoard[i][j];
@@ -86,7 +85,6 @@ public class Move {
                 toPiece.setColor(curentPiece.getColor());
                 curentPiece = null;
                 list.add(clone(chessBoard));
-
                 return list;
             }
         } catch (Exception e) {
