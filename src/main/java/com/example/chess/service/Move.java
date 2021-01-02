@@ -49,7 +49,6 @@ public class Move {
                     control(toX, toY, posX, posY, p, list);
                     break;
                 case 3:
-
                     newX = posX + 1;
                     newY = posY - 1;
                     if (newX < 0 || newX > 7 || newY < 0 || newY > 7) {
