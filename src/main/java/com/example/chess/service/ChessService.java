@@ -72,7 +72,12 @@ public class ChessService {
                     piece.setName(NameEnum.PAWN);
                     piece.setColor(ColorEnum.WHITE);
                     chessBoard[i][j] = piece;
-                }  else if (1 < i && i < 6) {
+                }  else if (i == 2 && j <8) {
+                    Piece piece = new Piece();
+                    piece.setName(NameEnum.PAWN);
+                    piece.setColor(ColorEnum.WHITE);
+                    chessBoard[i][j] = piece;
+                } else if (1 < i && i < 6) {
                     if (j < 8) {
                         Piece piece = new Piece();
                         chessBoard[i][j] = piece;
