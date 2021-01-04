@@ -24,19 +24,19 @@ public class Move {
                 /*if (p.getName() == HORSE && p.getColor() == BLACK) {
                     calculateHorseMoves(p, i, j, possibleMoves);
                 }*/
-                if (p.getName() == PAWN && p.getColor() == BLACK) {
+                /*if (p.getName() == PAWN && p.getColor() == BLACK) {
                     calculatePawnMoves(p, i, j, possibleMoves);
-                }
+                }*/
                 /*if (p.getName() == ROOK && p.getColor() == BLACK) {
                     calculateRookMoves(p, i, j, possibleMoves);
                 }*/
                /* if (p.getName() == KING && p.getColor() == BLACK) {
                     calculateKingMoves(p, i, j, possibleMoves);
                 }*/
-               /* if (p.getName() == BISHOP && p.getColor() == BLACK) {
+                if (p.getName() == BISHOP && p.getColor() == BLACK) {
                     calculateBishopMoves(p, i, j, possibleMoves);
-                }*/
-              /*  if (p.getName() == QUENN && p.getColor() == BLACK) {
+                }
+               /*if (p.getName() == QUENN && p.getColor() == BLACK) {
                     calculateQuennMoves(p, i, j, possibleMoves);
                 }*/
 
@@ -45,202 +45,202 @@ public class Move {
         return possibleMoves;
     }
 
-    /*void calculateQuennMoves(Piece p, int posX, int posY, List<Piece[][]> list) {
-        for (int quenn = 1; quenn < 9; quenn++) {
-            int toX, toY;
-            int newX, newY;
-            switch (quenn) {
-                case 1:
-                    for (int pos = 1; pos < 8; pos++) {
-                        try {
-                            Piece controlPiece = chessBoard[posX + pos][posY + pos];
-                            newX = posX + pos;
-                            newY = posY + pos;
-                            if (newX < 0 || newX > 7 || newY < 0 || newY > 7) {
-                            } else if (controlPiece.getColor() == BLACK) {
-                                break;
-                            } else if (controlPiece.getColor() == WHITE) {
-                                toX = posX + pos;
-                                toY = posY + pos;
-                                control(toX, toY, posX, posY, p, list);
-                                break;
-                            } else {
-                                toX = posX + pos;
-                                toY = posY + pos;
-                                control(toX, toY, posX, posY, p, list);
-                            }
-                        } catch (Exception e) {
-                        }
-                    }
-                    break;
-                case 2:
-                    //x++,y--
-                    for (int pos = 1; pos < 8; pos++) {
-                        try {
-                            Piece controlPiece = chessBoard[posX + pos][posY - pos];
-                            newX = posX + pos;
-                            newY = posY - pos;
-                            if (newX < 0 || newX > 7 || newY < 0 || newY > 7) {
-                            } else if (controlPiece.getColor() == BLACK) {
-                                break;
-                            } else if (controlPiece.getColor() == WHITE) {
-                                toX = posX + pos;
-                                toY = posY - pos;
-                                control(toX, toY, posX, posY, p, list);
-                                break;
-                            } else {
-                                toX = posX + pos;
-                                toY = posY - pos;
-                                control(toX, toY, posX, posY, p, list);
-                            }
-                        } catch (Exception e) {
-                        }
-                    }
-                    break;
-                case 3:
-                    //x--,y++
-                    for (int pos = 1; pos < 8; pos++) {
-                        try {
-                            Piece controlPiece = chessBoard[posX - pos][posY + pos];
-                            newX = posX - pos;
-                            newY = posY + pos;
-                            if (newX < 0 || newX > 7 || newY < 0 || newY > 7) {
-                            } else if (controlPiece.getColor() == BLACK) {
-                                break;
-                            } else if (controlPiece.getColor() == WHITE) {
-                                toX = posX - pos;
-                                toY = posY + pos;
-                                control(toX, toY, posX, posY, p, list);
-                                break;
-                            } else {
-                                toX = posX - pos;
-                                toY = posY + pos;
-                                control(toX, toY, posX, posY, p, list);
-                            }
-                        } catch (Exception e) {
-                        }
-                    }
-                    break;
-                case 4:
-                    //x--,y--
-                    for (int pos = 1; pos < 8; pos++) {
-                        try {
-                            Piece controlPiece = chessBoard[posX - pos][posY - pos];
-                            newX = posX - pos;
-                            newY = posY - pos;
-                            if (newX < 0 || newX > 7 || newY < 0 || newY > 7) {
-                            } else if (controlPiece.getColor() == BLACK) {
-                                break;
-                            } else if (controlPiece.getColor() == WHITE) {
-                                toX = posX - pos;
-                                toY = posY - pos;
-                                control(toX, toY, posX, posY, p, list);
-                                break;
-                            } else {
-                                toX = posX - pos;
-                                toY = posY - pos;
-                                control(toX, toY, posX, posY, p, list);
-                            }
-                        } catch (Exception e) {
-                        }
-                    }
-                    break;
-                case 5:
-                    //x++
-                    for (int pX = 1; pX < 8; pX++) {
-                        try {
-                            Piece controlPiece = chessBoard[posX + pX][posY];
-                            newX = posX + pX;
-                            if (newX < 0 || newX > 7) {
-                            } else if (controlPiece.getColor() == BLACK) {
-                                break;
-                            } else if (controlPiece.getColor() == WHITE) {
-                                toX = posX + pX;
-                                toY = posY;
-                                control(toX, toY, posX, posY, p, list);
-                                break;
-                            } else {
-                                toX = posX + pX;
-                                toY = posY;
-                                control(toX, toY, posX, posY, p, list);
-                            }
-                        } catch (Exception e) {
-                        }
-                    }
-                    break;
-                case 6:
-                    //x--
-                    for (int nX = 1; nX < 8; nX++) {
-                        try {
-                            Piece controlPiece = chessBoard[posX - nX][posY];
-                            newX = posX - nX;
-                            if (newX < 0 || newX > 7) {
-                            } else if (controlPiece.getColor() == BLACK) {
-                                break;
-                            } else if (controlPiece.getColor() == WHITE) {
-                                toX = posX - nX;
-                                toY = posY;
-                                control(toX, toY, posX, posY, p, list);
-                                break;
-                            } else {
-                                toX = posX - nX;
-                                toY = posY;
-                                control(toX, toY, posX, posY, p, list);
-                            }
-                        } catch (Exception e) {
-                        }
-                    }
-                    break;
-                case 7:
-                    //y++
-                    for (int pY = 1; pY < 8; pY++) {
-                        try {
-                            Piece controlPiece = chessBoard[posX][posY + pY];
-                            newY = posY + pY;
-                            if (newY < 0 || newY > 7) {
-                            } else if (controlPiece.getColor() == BLACK) {
-                                break;
-                            } else if (controlPiece.getColor() == WHITE) {
-                                toX = posX;
-                                toY = posY + pY;
-                                control(toX, toY, posX, posY, p, list);
-                                break;
-                            } else {
-                                toX = posX;
-                                toY = posY + pY;
-                                control(toX, toY, posX, posY, p, list);
-                            }
-                        } catch (Exception e) {
-                        }
-                    }
-                    break;
-                case 8:
-                    //y--
-                    for (int nY = 1; nY < 8; nY++) {
-                        try {
-                            Piece controlPiece = chessBoard[posX][posY - nY];
-                            newY = posY - nY;
-                            if (newY < 0 || newY > 7) {
-                            } else if (controlPiece.getColor() == BLACK) {
-                                break;
-                            } else if (controlPiece.getColor() == WHITE) {
-                                toX = posX;
-                                toY = posY - nY;
-                                control(toX, toY, posX, posY, p, list);
-                                break;
-                            } else {
-                                toX = posX;
-                                toY = posY - nY;
-                                control(toX, toY, posX, posY, p, list);
-                            }
-                        } catch (Exception e) {
-                        }
-                    }
-                    break;
-            }
-        }
-    }*/
-    /*void calculateBishopMoves(Piece p, int posX, int posY, List<Piece[][]> list) {
+    /* void calculateQuennMoves(Piece p, int posX, int posY, List<Piece[][]> list) {
+         for (int quenn = 1; quenn < 9; quenn++) {
+             int toX, toY;
+             int newX, newY;
+             switch (quenn) {
+                 case 1:
+                     for (int pos = 1; pos < 8; pos++) {
+                         try {
+                             Piece controlPiece = chessBoard[posX + pos][posY + pos];
+                             newX = posX + pos;
+                             newY = posY + pos;
+                             if (newX < 0 || newX > 7 || newY < 0 || newY > 7) {
+                             } else if (controlPiece.getColor() == BLACK) {
+                                 break;
+                             } else if (controlPiece.getColor() == WHITE) {
+                                 toX = posX + pos;
+                                 toY = posY + pos;
+                                 control(toX, toY, posX, posY, p, list);
+                                 break;
+                             } else {
+                                 toX = posX + pos;
+                                 toY = posY + pos;
+                                 control(toX, toY, posX, posY, p, list);
+                             }
+                         } catch (Exception e) {
+                         }
+                     }
+                     break;
+                 case 2:
+                     //x++,y--
+                     for (int pos = 1; pos < 8; pos++) {
+                         try {
+                             Piece controlPiece = chessBoard[posX + pos][posY - pos];
+                             newX = posX + pos;
+                             newY = posY - pos;
+                             if (newX < 0 || newX > 7 || newY < 0 || newY > 7) {
+                             } else if (controlPiece.getColor() == BLACK) {
+                                 break;
+                             } else if (controlPiece.getColor() == WHITE) {
+                                 toX = posX + pos;
+                                 toY = posY - pos;
+                                 control(toX, toY, posX, posY, p, list);
+                                 break;
+                             } else {
+                                 toX = posX + pos;
+                                 toY = posY - pos;
+                                 control(toX, toY, posX, posY, p, list);
+                             }
+                         } catch (Exception e) {
+                         }
+                     }
+                     break;
+                 case 3:
+                     //x--,y++
+                     for (int pos = 1; pos < 8; pos++) {
+                         try {
+                             Piece controlPiece = chessBoard[posX - pos][posY + pos];
+                             newX = posX - pos;
+                             newY = posY + pos;
+                             if (newX < 0 || newX > 7 || newY < 0 || newY > 7) {
+                             } else if (controlPiece.getColor() == BLACK) {
+                                 break;
+                             } else if (controlPiece.getColor() == WHITE) {
+                                 toX = posX - pos;
+                                 toY = posY + pos;
+                                 control(toX, toY, posX, posY, p, list);
+                                 break;
+                             } else {
+                                 toX = posX - pos;
+                                 toY = posY + pos;
+                                 control(toX, toY, posX, posY, p, list);
+                             }
+                         } catch (Exception e) {
+                         }
+                     }
+                     break;
+                 case 4:
+                     //x--,y--
+                     for (int pos = 1; pos < 8; pos++) {
+                         try {
+                             Piece controlPiece = chessBoard[posX - pos][posY - pos];
+                             newX = posX - pos;
+                             newY = posY - pos;
+                             if (newX < 0 || newX > 7 || newY < 0 || newY > 7) {
+                             } else if (controlPiece.getColor() == BLACK) {
+                                 break;
+                             } else if (controlPiece.getColor() == WHITE) {
+                                 toX = posX - pos;
+                                 toY = posY - pos;
+                                 control(toX, toY, posX, posY, p, list);
+                                 break;
+                             } else {
+                                 toX = posX - pos;
+                                 toY = posY - pos;
+                                 control(toX, toY, posX, posY, p, list);
+                             }
+                         } catch (Exception e) {
+                         }
+                     }
+                     break;
+                 case 5:
+                     //x++
+                     for (int pX = 1; pX < 8; pX++) {
+                         try {
+                             Piece controlPiece = chessBoard[posX + pX][posY];
+                             newX = posX + pX;
+                             if (newX < 0 || newX > 7) {
+                             } else if (controlPiece.getColor() == BLACK) {
+                                 break;
+                             } else if (controlPiece.getColor() == WHITE) {
+                                 toX = posX + pX;
+                                 toY = posY;
+                                 control(toX, toY, posX, posY, p, list);
+                                 break;
+                             } else {
+                                 toX = posX + pX;
+                                 toY = posY;
+                                 control(toX, toY, posX, posY, p, list);
+                             }
+                         } catch (Exception e) {
+                         }
+                     }
+                     break;
+                 case 6:
+                     //x--
+                     for (int nX = 1; nX < 8; nX++) {
+                         try {
+                             Piece controlPiece = chessBoard[posX - nX][posY];
+                             newX = posX - nX;
+                             if (newX < 0 || newX > 7) {
+                             } else if (controlPiece.getColor() == BLACK) {
+                                 break;
+                             } else if (controlPiece.getColor() == WHITE) {
+                                 toX = posX - nX;
+                                 toY = posY;
+                                 control(toX, toY, posX, posY, p, list);
+                                 break;
+                             } else {
+                                 toX = posX - nX;
+                                 toY = posY;
+                                 control(toX, toY, posX, posY, p, list);
+                             }
+                         } catch (Exception e) {
+                         }
+                     }
+                     break;
+                 case 7:
+                     //y++
+                     for (int pY = 1; pY < 8; pY++) {
+                         try {
+                             Piece controlPiece = chessBoard[posX][posY + pY];
+                             newY = posY + pY;
+                             if (newY < 0 || newY > 7) {
+                             } else if (controlPiece.getColor() == BLACK) {
+                                 break;
+                             } else if (controlPiece.getColor() == WHITE) {
+                                 toX = posX;
+                                 toY = posY + pY;
+                                 control(toX, toY, posX, posY, p, list);
+                                 break;
+                             } else {
+                                 toX = posX;
+                                 toY = posY + pY;
+                                 control(toX, toY, posX, posY, p, list);
+                             }
+                         } catch (Exception e) {
+                         }
+                     }
+                     break;
+                 case 8:
+                     //y--
+                     for (int nY = 1; nY < 8; nY++) {
+                         try {
+                             Piece controlPiece = chessBoard[posX][posY - nY];
+                             newY = posY - nY;
+                             if (newY < 0 || newY > 7) {
+                             } else if (controlPiece.getColor() == BLACK) {
+                                 break;
+                             } else if (controlPiece.getColor() == WHITE) {
+                                 toX = posX;
+                                 toY = posY - nY;
+                                 control(toX, toY, posX, posY, p, list);
+                                 break;
+                             } else {
+                                 toX = posX;
+                                 toY = posY - nY;
+                                 control(toX, toY, posX, posY, p, list);
+                             }
+                         } catch (Exception e) {
+                         }
+                     }
+                     break;
+             }
+         }
+     }*/
+    void calculateBishopMoves(Piece p, int posX, int posY, List<Piece[][]> list) {
         for (int bishop = 1; bishop < 5; bishop++) {
             int toX, toY;
             int newX, newY;
@@ -253,10 +253,13 @@ public class Move {
                             newX = posX + pos;
                             newY = posY + pos;
                             if (newX < 0 || newX > 7 || newY < 0 || newY > 7) {
+                            } else if (controlPiece.getColor() == BLACK) {
+                                break;
                             } else if (controlPiece.getColor() == WHITE) {
                                 toX = posX + pos;
                                 toY = posY + pos;
                                 control(toX, toY, posX, posY, p, list);
+                                break;
                             } else {
                                 toX = posX + pos;
                                 toY = posY + pos;
@@ -274,10 +277,13 @@ public class Move {
                             newX = posX + pos;
                             newY = posY - pos;
                             if (newX < 0 || newX > 7 || newY < 0 || newY > 7) {
+                            } else if (controlPiece.getColor() == BLACK) {
+                                break;
                             } else if (controlPiece.getColor() == WHITE) {
                                 toX = posX + pos;
                                 toY = posY - pos;
                                 control(toX, toY, posX, posY, p, list);
+                                break;
                             } else {
                                 toX = posX + pos;
                                 toY = posY - pos;
@@ -295,10 +301,13 @@ public class Move {
                             newX = posX - pos;
                             newY = posY + pos;
                             if (newX < 0 || newX > 7 || newY < 0 || newY > 7) {
+                            } else if (controlPiece.getColor() == BLACK) {
+                                break;
                             } else if (controlPiece.getColor() == WHITE) {
                                 toX = posX - pos;
                                 toY = posY + pos;
                                 control(toX, toY, posX, posY, p, list);
+                                break;
                             } else {
                                 toX = posX - pos;
                                 toY = posY + pos;
@@ -316,10 +325,13 @@ public class Move {
                             newX = posX - pos;
                             newY = posY - pos;
                             if (newX < 0 || newX > 7 || newY < 0 || newY > 7) {
+                            } else if (controlPiece.getColor() == BLACK) {
+                                break;
                             } else if (controlPiece.getColor() == WHITE) {
                                 toX = posX - pos;
                                 toY = posY - pos;
                                 control(toX, toY, posX, posY, p, list);
+                                break;
                             } else {
                                 toX = posX - pos;
                                 toY = posY - pos;
@@ -331,7 +343,7 @@ public class Move {
                     break;
             }
         }
-    }*/
+    }
     /* void calculateKingMoves(Piece p, int posX, int posY, List<Piece[][]> list) {
         for (int king = 1; king < 9; king++) {
             int toX, toY;
@@ -487,7 +499,7 @@ public class Move {
             }
         }
     }*/
-    void calculatePawnMoves(Piece p, int posX, int posY, List<Piece[][]> list) {
+  /*  void calculatePawnMoves(Piece p, int posX, int posY, List<Piece[][]> list) {
         for (int pawn = 1; pawn < 4; pawn++) {
             int toX, toY;
             int newX, newY;
@@ -535,11 +547,10 @@ public class Move {
                             control(toX, toY, posX, posY, p, list);
                         }
                     }
-
                     break;
             }
         }
-    }
+    }*/
     /*  void calculateHorseMoves(Piece p, int posX, int posY, List<Piece[][]> list) {
         for (int horse = 1; horse < 9; horse++) {
             int toX, toY;
