@@ -27,8 +27,7 @@ public class ChessService {
                     piece.setName(NameEnum.BISHOP);
                     piece.setColor(ColorEnum.BLACK);
                     chessBoard[i][j] = piece;
-                }
-                if (i == 0 && j == 3) {
+                } else if (i == 0 && j == 3) {
                     Piece piece = new Piece();
                     piece.setName(NameEnum.QUENN);
                     piece.setColor(ColorEnum.BLACK);
@@ -38,12 +37,12 @@ public class ChessService {
                     piece.setName(NameEnum.KING);
                     piece.setColor(ColorEnum.BLACK);
                     chessBoard[i][j] = piece;
-                } /*else if (i == 1 && j < 8) {
+                } else if (i == 1 && j < 8) {
                     Piece piece = new Piece();
-                    piece.setName(NameEnum.PAWN);
-                    piece.setColor(ColorEnum.BLACK);
+                    piece.setName(null);
+                    piece.setColor(null);
                     chessBoard[i][j] = piece;
-                } */else if (i == 7 && j == 0 || i == 7 && j == 7) {
+                } else if (i == 7 && j == 0 || i == 7 && j == 7) {
                     Piece piece = new Piece();
                     piece.setName(NameEnum.ROOK);
                     piece.setColor(ColorEnum.WHITE);
@@ -69,11 +68,6 @@ public class ChessService {
                     piece.setColor(ColorEnum.WHITE);
                     chessBoard[i][j] = piece;
                 } else if (i == 6 && j < 8) {
-                    Piece piece = new Piece();
-                    piece.setName(NameEnum.PAWN);
-                    piece.setColor(ColorEnum.WHITE);
-                    chessBoard[i][j] = piece;
-                }else if (i==2 && j==5){
                     Piece piece = new Piece();
                     piece.setName(NameEnum.PAWN);
                     piece.setColor(ColorEnum.WHITE);
