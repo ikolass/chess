@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.chess.type.ColorEnum.BLACK;
-import static com.example.chess.type.ColorEnum.WHITE;
 import static com.example.chess.type.NameEnum.*;
 
 @Service
@@ -21,74 +20,34 @@ public class Move {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 Piece p = chessBoard[i][j];
+                if (p.getName() == ROOK && p.getColor() == BLACK) {
+                    calculateRookMoves(p, i, j, possibleMoves);
+                }
                 /*if (p.getName() == HORSE && p.getColor() == BLACK) {
                     calculateHorseMoves(p, i, j, possibleMoves);
+                }*/
+                 /* if (p.getName() == BISHOP && p.getColor() == BLACK) {
+                    calculateBishopMoves(p, i, j, possibleMoves);
+                }*/
+                 /*if (p.getName() == KING && p.getColor() == BLACK) {
+                    calculateKingMoves(p, i, j, possibleMoves);
+                }*/
+                /*  if (p.getName() == QUENN && p.getColor() == BLACK) {
+                    calculateQuennMoves(p, i, j, possibleMoves);
                 }*/
                /* if (p.getName() == PAWN && p.getColor() == BLACK) {
                     calculatePawnMoves(p, i, j, possibleMoves);
                 }*/
-                /*if (p.getName() == ROOK && p.getColor() == BLACK) {
-                    calculateRookMoves(p, i, j, possibleMoves);
-                }*/
-               /*if (p.getName() == KING && p.getColor() == BLACK) {
-                    calculateKingMoves(p, i, j, possibleMoves);
-                }*/
-               /* if (p.getName() == BISHOP && p.getColor() == BLACK) {
-                    calculateBishopMoves(p, i, j, possibleMoves);
-                }*/
-               if (p.getName() == QUENN && p.getColor() == BLACK) {
-                    calculateQuennMoves(p, i, j, possibleMoves);
-                }
-
             }
         }
         return possibleMoves;
     }
 
-    void calculateQuennMoves(Piece p, int posX, int posY, List<Piece[][]> list) {
-        for (int quenn = 1; quenn < 9; quenn++) {
+    void calculateRookMoves(Piece p, int posX, int posY, List<Piece[][]> list) {
+        for (int rook = 1; rook < 5; rook++) {
             int toX, toY;
-            switch (quenn) {
+            switch (rook) {
                 case 1:
-                    for (int pos = 1; pos < 8; pos++) {
-                        toX = posX + pos;
-                        toY = posY + pos;
-                        if (!control(toX, toY, posX, posY, p, list)) {
-                            break;
-                        }
-                    }
-                    break;
-                case 2:
-                    //x++,y--
-                    for (int pos = 1; pos < 8; pos++) {
-                        toX = posX + pos;
-                        toY = posY - pos;
-                        if (!control(toX, toY, posX, posY, p, list)) {
-                            break;
-                        }
-                    }
-                    break;
-                case 3:
-                    //x--,y++
-                    for (int pos = 1; pos < 8; pos++) {
-                        toX = posX - pos;
-                        toY = posY + pos;
-                        if (!control(toX, toY, posX, posY, p, list)) {
-                            break;
-                        }
-                    }
-                    break;
-                case 4:
-                    //x--,y--
-                    for (int pos = 1; pos < 8; pos++) {
-                        toX = posX - pos;
-                        toY = posY - pos;
-                        if (!control(toX, toY, posX, posY, p, list)) {
-                            break;
-                        }
-                    }
-                    break;
-                case 5:
                     //x++
                     for (int pX = 1; pX < 8; pX++) {
                         toX = posX + pX;
@@ -98,7 +57,7 @@ public class Move {
                         }
                     }
                     break;
-                case 6:
+                case 2:
                     //x--
                     for (int nX = 1; nX < 8; nX++) {
                         toX = posX - nX;
@@ -108,7 +67,7 @@ public class Move {
                         }
                     }
                     break;
-                case 7:
+                case 3:
                     //y++
                     for (int pY = 1; pY < 8; pY++) {
                         toX = posX;
@@ -118,7 +77,7 @@ public class Move {
                         }
                     }
                     break;
-                case 8:
+                case 4:
                     //y--
                     for (int nY = 1; nY < 8; nY++) {
                         toX = posX;
@@ -126,6 +85,70 @@ public class Move {
                         if (!control(toX, toY, posX, posY, p, list)) {
                             break;
                         }
+                    }
+                    break;
+            }
+        }
+    }
+
+    void calculateHorseMoves(Piece p, int posX, int posY, List<Piece[][]> list) {
+        for (int horse = 1; horse < 9; horse++) {
+            int toX, toY;
+            switch (horse) {
+                case 1:
+                    toX = posX + 2;
+                    toY = posY + 1;
+                    if (!control(toX, toY, posX, posY, p, list)) {
+                        break;
+                    }
+                    break;
+                case 2:
+                    toX = posX + 2;
+                    toY = posY - 1;
+                    if (!control(toX, toY, posX, posY, p, list)) {
+                        break;
+                    }
+                    break;
+                case 3:
+                    toX = posX - 2;
+                    toY = posY - 1;
+                    if (!control(toX, toY, posX, posY, p, list)) {
+                        break;
+                    }
+                    break;
+                case 4:
+                    toX = posX - 2;
+                    toY = posY + 1;
+                    if (!control(toX, toY, posX, posY, p, list)) {
+                        break;
+                    }
+                    break;
+                case 5:
+                    toX = posX - 1;
+                    toY = posY - 2;
+                    if (!control(toX, toY, posX, posY, p, list)) {
+                        break;
+                    }
+                    break;
+                case 6:
+                    toX = posX - 1;
+                    toY = posY + 2;
+                    if (!control(toX, toY, posX, posY, p, list)) {
+                        break;
+                    }
+                    break;
+                case 7:
+                    toX = posX + 1;
+                    toY = posY - 2;
+                    if (!control(toX, toY, posX, posY, p, list)) {
+                        break;
+                    }
+                    break;
+                case 8:
+                    toX = posX + 1;
+                    toY = posY + 2;
+                    if (!control(toX, toY, posX, posY, p, list)) {
+                        break;
                     }
                     break;
             }
@@ -252,11 +275,50 @@ public class Move {
         }
     }
 
-    void calculateRookMoves(Piece p, int posX, int posY, List<Piece[][]> list) {
-        for (int rook = 1; rook < 5; rook++) {
+    void calculateQuennMoves(Piece p, int posX, int posY, List<Piece[][]> list) {
+        for (int quenn = 1; quenn < 9; quenn++) {
             int toX, toY;
-            switch (rook) {
+            switch (quenn) {
                 case 1:
+                    for (int pos = 1; pos < 8; pos++) {
+                        toX = posX + pos;
+                        toY = posY + pos;
+                        if (!control(toX, toY, posX, posY, p, list)) {
+                            break;
+                        }
+                    }
+                    break;
+                case 2:
+                    //x++,y--
+                    for (int pos = 1; pos < 8; pos++) {
+                        toX = posX + pos;
+                        toY = posY - pos;
+                        if (!control(toX, toY, posX, posY, p, list)) {
+                            break;
+                        }
+                    }
+                    break;
+                case 3:
+                    //x--,y++
+                    for (int pos = 1; pos < 8; pos++) {
+                        toX = posX - pos;
+                        toY = posY + pos;
+                        if (!control(toX, toY, posX, posY, p, list)) {
+                            break;
+                        }
+                    }
+                    break;
+                case 4:
+                    //x--,y--
+                    for (int pos = 1; pos < 8; pos++) {
+                        toX = posX - pos;
+                        toY = posY - pos;
+                        if (!control(toX, toY, posX, posY, p, list)) {
+                            break;
+                        }
+                    }
+                    break;
+                case 5:
                     //x++
                     for (int pX = 1; pX < 8; pX++) {
                         toX = posX + pX;
@@ -266,7 +328,7 @@ public class Move {
                         }
                     }
                     break;
-                case 2:
+                case 6:
                     //x--
                     for (int nX = 1; nX < 8; nX++) {
                         toX = posX - nX;
@@ -276,7 +338,7 @@ public class Move {
                         }
                     }
                     break;
-                case 3:
+                case 7:
                     //y++
                     for (int pY = 1; pY < 8; pY++) {
                         toX = posX;
@@ -286,7 +348,7 @@ public class Move {
                         }
                     }
                     break;
-                case 4:
+                case 8:
                     //y--
                     for (int nY = 1; nY < 8; nY++) {
                         toX = posX;
@@ -336,69 +398,6 @@ public class Move {
         }
     }
 
-    void calculateHorseMoves(Piece p, int posX, int posY, List<Piece[][]> list) {
-        for (int horse = 1; horse < 9; horse++) {
-            int toX, toY;
-            switch (horse) {
-                case 1:
-                    toX = posX + 2;
-                    toY = posY + 1;
-                    if (!control(toX, toY, posX, posY, p, list)) {
-                        break;
-                    }
-                    break;
-                case 2:
-                    toX = posX + 2;
-                    toY = posY - 1;
-                    if (!control(toX, toY, posX, posY, p, list)) {
-                        break;
-                    }
-                    break;
-                case 3:
-                    toX = posX - 2;
-                    toY = posY - 1;
-                    if (!control(toX, toY, posX, posY, p, list)) {
-                        break;
-                    }
-                    break;
-                case 4:
-                    toX = posX - 2;
-                    toY = posY + 1;
-                    if (!control(toX, toY, posX, posY, p, list)) {
-                        break;
-                    }
-                    break;
-                case 5:
-                    toX = posX - 1;
-                    toY = posY - 2;
-                    if (!control(toX, toY, posX, posY, p, list)) {
-                        break;
-                    }
-                    break;
-                case 6:
-                    toX = posX - 1;
-                    toY = posY + 2;
-                    if (!control(toX, toY, posX, posY, p, list)) {
-                        break;
-                    }
-                    break;
-                case 7:
-                    toX = posX + 1;
-                    toY = posY - 2;
-                    if (!control(toX, toY, posX, posY, p, list)) {
-                        break;
-                    }
-                    break;
-                case 8:
-                    toX = posX + 1;
-                    toY = posY + 2;
-                    if (!control(toX, toY, posX, posY, p, list)) {
-                        break;
-                    }
-                    break;
-            }
-        }
-    }
 
     private boolean control(int toX, int toY, int x, int y, Piece curentPiece, List<Piece[][]> list) {
         Piece[][] tempBoard = null;
