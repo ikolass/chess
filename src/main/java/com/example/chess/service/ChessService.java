@@ -39,8 +39,8 @@ public class ChessService {
                     chessBoard[i][j] = piece;
                 } else if (i == 1 && j < 8) {
                     Piece piece = new Piece();
-                    piece.setName(null);
-                    piece.setColor(null);
+                    piece.setName(NameEnum.PAWN);
+                    piece.setColor(ColorEnum.BLACK);
                     chessBoard[i][j] = piece;
                 } else if (i == 7 && j == 0 || i == 7 && j == 7) {
                     Piece piece = new Piece();

@@ -15,14 +15,15 @@ public class Move {
     ChessService chessService = new ChessService();
     Piece[][] chessBoard = chessService.createBoard();
     List<Piece[][]> possibleMoves = new ArrayList<>();
+    Piece[][] tempBoard = chessBoard;
 
     public List<Piece[][]> movePiece() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 Piece p = chessBoard[i][j];
-                if (p.getName() == ROOK && p.getColor() == BLACK) {
-                    calculateRookMoves(p, i, j, possibleMoves);
-                }
+               /* if (p.getName() == ROOK && p.getColor() == BLACK) {
+                    calculateRookMoves(p, i, j, possibleMoves, tempBoard);
+                }*/
                 /*if (p.getName() == HORSE && p.getColor() == BLACK) {
                     calculateHorseMoves(p, i, j, possibleMoves);
                 }*/
@@ -35,15 +36,15 @@ public class Move {
                 /*  if (p.getName() == QUENN && p.getColor() == BLACK) {
                     calculateQuennMoves(p, i, j, possibleMoves);
                 }*/
-               /* if (p.getName() == PAWN && p.getColor() == BLACK) {
-                    calculatePawnMoves(p, i, j, possibleMoves);
-                }*/
+                if (p.getName() == PAWN && p.getColor() == BLACK) {
+                    calculatePawnMoves(p, i, j, possibleMoves, tempBoard);
+                }
             }
         }
         return possibleMoves;
     }
 
-    void calculateRookMoves(Piece p, int posX, int posY, List<Piece[][]> list) {
+    void calculateRookMoves(Piece p, int posX, int posY, List<Piece[][]> list, Piece[][] tempBoard) {
         for (int rook = 1; rook < 5; rook++) {
             int toX, toY;
             switch (rook) {
@@ -52,7 +53,7 @@ public class Move {
                     for (int pX = 1; pX < 8; pX++) {
                         toX = posX + pX;
                         toY = posY;
-                        if (!control(toX, toY, posX, posY, p, list)) {
+                        if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                             break;
                         }
                     }
@@ -62,7 +63,7 @@ public class Move {
                     for (int nX = 1; nX < 8; nX++) {
                         toX = posX - nX;
                         toY = posY;
-                        if (!control(toX, toY, posX, posY, p, list)) {
+                        if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                             break;
                         }
                     }
@@ -72,7 +73,7 @@ public class Move {
                     for (int pY = 1; pY < 8; pY++) {
                         toX = posX;
                         toY = posY + pY;
-                        if (!control(toX, toY, posX, posY, p, list)) {
+                        if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                             break;
                         }
                     }
@@ -82,7 +83,7 @@ public class Move {
                     for (int nY = 1; nY < 8; nY++) {
                         toX = posX;
                         toY = posY - nY;
-                        if (!control(toX, toY, posX, posY, p, list)) {
+                        if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                             break;
                         }
                     }
@@ -98,56 +99,56 @@ public class Move {
                 case 1:
                     toX = posX + 2;
                     toY = posY + 1;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                         break;
                     }
                     break;
                 case 2:
                     toX = posX + 2;
                     toY = posY - 1;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                         break;
                     }
                     break;
                 case 3:
                     toX = posX - 2;
                     toY = posY - 1;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                         break;
                     }
                     break;
                 case 4:
                     toX = posX - 2;
                     toY = posY + 1;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                         break;
                     }
                     break;
                 case 5:
                     toX = posX - 1;
                     toY = posY - 2;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                         break;
                     }
                     break;
                 case 6:
                     toX = posX - 1;
                     toY = posY + 2;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                         break;
                     }
                     break;
                 case 7:
                     toX = posX + 1;
                     toY = posY - 2;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                         break;
                     }
                     break;
                 case 8:
                     toX = posX + 1;
                     toY = posY + 2;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                         break;
                     }
                     break;
@@ -164,7 +165,7 @@ public class Move {
                     for (int pos = 1; pos < 8; pos++) {
                         toX = posX + pos;
                         toY = posY + pos;
-                        if (!control(toX, toY, posX, posY, p, list)) {
+                        if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                             break;
                         }
                     }
@@ -174,7 +175,7 @@ public class Move {
                     for (int pos = 1; pos < 8; pos++) {
                         toX = posX + pos;
                         toY = posY - pos;
-                        if (!control(toX, toY, posX, posY, p, list)) {
+                        if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                             break;
                         }
                     }
@@ -184,7 +185,7 @@ public class Move {
                     for (int pos = 1; pos < 8; pos++) {
                         toX = posX - pos;
                         toY = posY + pos;
-                        if (!control(toX, toY, posX, posY, p, list)) {
+                        if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                             break;
                         }
                     }
@@ -194,7 +195,7 @@ public class Move {
                     for (int pos = 1; pos < 8; pos++) {
                         toX = posX - pos;
                         toY = posY - pos;
-                        if (!control(toX, toY, posX, posY, p, list)) {
+                        if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                             break;
                         }
                     }
@@ -211,7 +212,7 @@ public class Move {
                     // x+1,y-1
                     toX = posX + 1;
                     toY = posY - 1;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                         break;
                     }
                     break;
@@ -219,7 +220,7 @@ public class Move {
                     //x+1,y
                     toX = posX + 1;
                     toY = posY;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                         break;
                     }
                     break;
@@ -227,7 +228,7 @@ public class Move {
                     //x+1,y+1
                     toX = posX + 1;
                     toY = posY + 1;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                         break;
                     }
                     break;
@@ -235,7 +236,7 @@ public class Move {
                     //x,y+1
                     toX = posX;
                     toY = posY + 1;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                         break;
                     }
                     break;
@@ -243,7 +244,7 @@ public class Move {
                     //x-1,y+1
                     toX = posX - 1;
                     toY = posY + 1;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                         break;
                     }
                     break;
@@ -251,7 +252,7 @@ public class Move {
                     //x-1,y
                     toX = posX - 1;
                     toY = posY;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                         break;
                     }
                     break;
@@ -259,7 +260,7 @@ public class Move {
                     //x-1,y-1
                     toX = posX - 1;
                     toY = posY - 1;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                         break;
                     }
                     break;
@@ -267,7 +268,7 @@ public class Move {
                     //x,y-1
                     toX = posX;
                     toY = posY - 1;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                         break;
                     }
                     break;
@@ -283,7 +284,7 @@ public class Move {
                     for (int pos = 1; pos < 8; pos++) {
                         toX = posX + pos;
                         toY = posY + pos;
-                        if (!control(toX, toY, posX, posY, p, list)) {
+                        if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                             break;
                         }
                     }
@@ -293,7 +294,7 @@ public class Move {
                     for (int pos = 1; pos < 8; pos++) {
                         toX = posX + pos;
                         toY = posY - pos;
-                        if (!control(toX, toY, posX, posY, p, list)) {
+                        if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                             break;
                         }
                     }
@@ -303,7 +304,7 @@ public class Move {
                     for (int pos = 1; pos < 8; pos++) {
                         toX = posX - pos;
                         toY = posY + pos;
-                        if (!control(toX, toY, posX, posY, p, list)) {
+                        if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                             break;
                         }
                     }
@@ -313,7 +314,7 @@ public class Move {
                     for (int pos = 1; pos < 8; pos++) {
                         toX = posX - pos;
                         toY = posY - pos;
-                        if (!control(toX, toY, posX, posY, p, list)) {
+                        if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                             break;
                         }
                     }
@@ -323,7 +324,7 @@ public class Move {
                     for (int pX = 1; pX < 8; pX++) {
                         toX = posX + pX;
                         toY = posY;
-                        if (!control(toX, toY, posX, posY, p, list)) {
+                        if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                             break;
                         }
                     }
@@ -333,7 +334,7 @@ public class Move {
                     for (int nX = 1; nX < 8; nX++) {
                         toX = posX - nX;
                         toY = posY;
-                        if (!control(toX, toY, posX, posY, p, list)) {
+                        if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                             break;
                         }
                     }
@@ -343,7 +344,7 @@ public class Move {
                     for (int pY = 1; pY < 8; pY++) {
                         toX = posX;
                         toY = posY + pY;
-                        if (!control(toX, toY, posX, posY, p, list)) {
+                        if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                             break;
                         }
                     }
@@ -353,7 +354,7 @@ public class Move {
                     for (int nY = 1; nY < 8; nY++) {
                         toX = posX;
                         toY = posY - nY;
-                        if (!control(toX, toY, posX, posY, p, list)) {
+                        if (!control(toX, toY, posX, posY, p, list, tempBoard)) {
                             break;
                         }
                     }
@@ -362,35 +363,35 @@ public class Move {
         }
     }
 
-    void calculatePawnMoves(Piece p, int posX, int posY, List<Piece[][]> list) {
-        for (int pawn = 1; pawn < 4; pawn++) {
+    void calculatePawnMoves(Piece p, int posX, int posY, List<Piece[][]> list, Piece[][] tempBoard) {
+        for (int pawn = 1; pawn < 2; pawn++) {
             int toX, toY;
             switch (pawn) {
                 case 1:
                     toX = posX + 2;
                     toY = posY;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, this.tempBoard)) {
                         break;
                     }
                     break;
                 case 2:
                     toX = posX + 1;
                     toY = posY;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, this.tempBoard)) {
                         break;
                     }
                     break;
                 case 3:
                     toX = posX + 1;
                     toY = posY - 1;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, this.tempBoard)) {
                         break;
                     }
                     break;
                 case 4:
                     toX = posX + 1;
                     toY = posY + 1;
-                    if (!control(toX, toY, posX, posY, p, list)) {
+                    if (!control(toX, toY, posX, posY, p, list, this.tempBoard)) {
                         break;
                     }
                     break;
@@ -399,8 +400,8 @@ public class Move {
     }
 
 
-    private boolean control(int toX, int toY, int x, int y, Piece curentPiece, List<Piece[][]> list) {
-        Piece[][] tempBoard = null;
+    private boolean control(int toX, int toY, int x, int y, Piece curentPiece, List<Piece[][]> list, Piece[][] tempBoard) {
+        //Piece[][] tempBoard = null;
         try {
             Piece toPiece = chessBoard[toX][toY];
             if (toX < 0 || toX > 7 || toY < 0 || toY > 7) {
@@ -408,7 +409,7 @@ public class Move {
                 toPiece = new Piece();
                 toPiece.setName(curentPiece.getName());
                 toPiece.setColor(curentPiece.getColor());
-                tempBoard = clone(chessBoard);
+                // tempBoard = clone(chessBoard);
                 tempBoard[x][y].setName(null);
                 tempBoard[x][y].setColor(null);
                 tempBoard[toX][toY] = toPiece;
@@ -420,7 +421,7 @@ public class Move {
         return false;
     }
 
-    Piece[][] clone(Piece[][] chessBoard) {
+   /* Piece[][] clone(Piece[][] chessBoard) {
         Piece[][] newBoard = new Piece[8][8];
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -434,7 +435,7 @@ public class Move {
             }
         }
         return newBoard;
-    }
+    }*/
 }
 
 
